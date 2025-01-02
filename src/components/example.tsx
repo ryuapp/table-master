@@ -36,5 +36,11 @@ export const GridExample = () => {
   ]);
 
   // Container: Defines the grid's theme & dimensions.
-  return <AgGridReact rowData={rowData} columnDefs={colDefs} />;
+  return (
+    <AgGridReact
+      rowData={rowData}
+      columnDefs={colDefs}
+      suppressDragLeaveHidesColumns={true}
+    />
+  );
 };
