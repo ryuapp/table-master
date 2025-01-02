@@ -9,8 +9,7 @@ export const Route = createFileRoute("/")({
 function HomeComponent() {
   return (
     <div className="p-2 flex flex-col">
-      <h3>Welcome Home!</h3>
-      <div className="w-full h-[400px]">
+      <div>
         <GridExample />
       </div>
     </div>

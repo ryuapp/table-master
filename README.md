@@ -2,4 +2,4 @@
 
 ## Roadmap
 - [ ] Import CSV
-- [ ] Export CSV
+- [x] Export CSV
