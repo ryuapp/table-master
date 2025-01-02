@@ -1,7 +1,11 @@
-'use client';
+"use client";
 
-import {useState } from "react";
-import { AllCommunityModule, ModuleRegistry, ColDef } from "ag-grid-community";
+import { useState } from "react";
+import {
+  AllCommunityModule,
+  ModuleRegistry,
+  type ColDef,
+} from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -32,8 +36,5 @@ export const GridExample = () => {
   ]);
 
   // Container: Defines the grid's theme & dimensions.
-  return (
-      <AgGridReact rowData={rowData} columnDefs={colDefs} />
-   
-  );
+  return <AgGridReact rowData={rowData} columnDefs={colDefs} />;
 };
