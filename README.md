@@ -1,5 +1,5 @@
 # table-master
 
 ## Roadmap
-- [ ] Import CSV
+- [x] Import CSV
 - [x] Export CSV

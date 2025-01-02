@@ -7,6 +7,7 @@ import {
   type ColDef,
 } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
+import Papa from "papaparse";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -42,6 +43,27 @@ export const GridExample = () => {
     gridRef.current!.api.exportDataAsCsv();
   }, []);
 
+  const onBtnImport = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        Papa.parse(file, {
+          header: true,
+          complete: (result: { data: IRow[] }) => {
+            if (result.data[0]) {
+              const colDefs = Object.keys(result.data[0]).map((field) => ({
+                field,
+              }));
+              setColDefs(colDefs as ColDef<IRow>[]);
+            }
+            setRowData(result.data as IRow[]);
+          },
+        });
+      }
+    },
+    [],
+  );
+
   // Container: Defines the grid's theme & dimensions.
   return (
     <div className="w-full h-[400px] flex flex-col gap-2">
@@ -52,6 +74,7 @@ export const GridExample = () => {
         columnDefs={colDefs}
         suppressDragLeaveHidesColumns={true}
       />
+      <input type="file" accept=".csv" onChange={onBtnImport} />
       {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
       <button
         className="w-full border-2 py-1 px-2 rounded"
