@@ -1,6 +1,5 @@
-import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { GridExample } from "../components/example";
+import { Table } from "../components/table";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -10,7 +9,7 @@ function HomeComponent() {
   return (
     <div className="p-2 flex flex-col">
       <div>
-        <GridExample />
+        <Table />
       </div>
     </div>
   );

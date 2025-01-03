@@ -11,7 +11,6 @@ import Papa from "papaparse";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-// Row Data Interface
 interface IRow {
   make: string;
   model: string;
@@ -19,18 +18,15 @@ interface IRow {
   electric: boolean;
 }
 
-// Create new GridExample component
-export const GridExample = () => {
+export const Table = () => {
   const gridRef = useRef<AgGridReact>(null);
 
-  // Row Data: The data to be displayed.
   const [rowData, setRowData] = useState<IRow[]>([
     { make: "Tesla", model: "Model Y", price: 64950, electric: true },
     { make: "Ford", model: "F-Series", price: 33850, electric: false },
     { make: "Toyota", model: "Corolla", price: 29600, electric: false },
   ]);
 
-  // Column Definitions: Defines & controls grid columns.
   const [colDefs, setColDefs] = useState<ColDef<IRow>[]>([
     { field: "make" },
     { field: "model" },
@@ -39,8 +35,7 @@ export const GridExample = () => {
   ]);
 
   const onBtnExport = useCallback(() => {
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    gridRef.current!.api.exportDataAsCsv();
+    gridRef.current?.api.exportDataAsCsv();
   }, []);
 
   const onBtnImport = useCallback(
@@ -64,7 +59,6 @@ export const GridExample = () => {
     [],
   );
 
-  // Container: Defines the grid's theme & dimensions.
   return (
     <div className="w-full h-[400px] flex flex-col gap-2">
       <AgGridReact
@@ -75,8 +69,8 @@ export const GridExample = () => {
         suppressDragLeaveHidesColumns={true}
       />
       <input type="file" accept=".csv" onChange={onBtnImport} />
-      {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
       <button
+        type="button"
         className="w-full border-2 py-1 px-2 rounded"
         onClick={onBtnExport}
       >
