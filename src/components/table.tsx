@@ -61,6 +61,29 @@ export const Table = () => {
 
   return (
     <div className="w-full h-[400px] flex flex-col gap-2">
+      <div className="flex gap-2">
+        <input
+          type="file"
+          accept=".csv"
+          onChange={onBtnImport}
+          className="hidden"
+          id="fileInput"
+        />
+        <button
+          type="button"
+          className="border-2 py-1 px-2 rounded"
+          onClick={() => document.getElementById("fileInput")?.click()}
+        >
+          Upload CSV
+        </button>
+        <button
+          type="button"
+          className="border-2 py-1 px-2 rounded"
+          onClick={onBtnExport}
+        >
+          Export CSV
+        </button>
+      </div>
       <AgGridReact
         className="size-full"
         ref={gridRef}
@@ -68,14 +91,6 @@ export const Table = () => {
         columnDefs={colDefs}
         suppressDragLeaveHidesColumns={true}
       />
-      <input type="file" accept=".csv" onChange={onBtnImport} />
-      <button
-        type="button"
-        className="w-full border-2 py-1 px-2 rounded"
-        onClick={onBtnExport}
-      >
-        Download CSV export file
-      </button>
     </div>
   );
 };
