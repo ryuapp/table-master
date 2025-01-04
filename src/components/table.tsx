@@ -28,10 +28,10 @@ export const Table = () => {
   ]);
 
   const [colDefs, setColDefs] = useState<ColDef<IRow>[]>([
-    { field: "make" },
-    { field: "model" },
-    { field: "price" },
-    { field: "electric" },
+    { field: "make", editable: true },
+    { field: "model", editable: true },
+    { field: "price", editable: true },
+    { field: "electric", editable: true },
   ]);
 
   const onBtnExport = useCallback(() => {
@@ -48,6 +48,7 @@ export const Table = () => {
             if (result.data[0]) {
               const colDefs = Object.keys(result.data[0]).map((field) => ({
                 field,
+                editable: true,
               }));
               setColDefs(colDefs as ColDef<IRow>[]);
             }
