@@ -21,15 +21,6 @@ function RootComponent() {
           <Home size="20" />
           Home
         </Link>{" "}
-        <Link
-          to="/about"
-          className=" flex gap-1 items-center"
-          activeProps={{
-            className: "font-bold",
-          }}
-        >
-          About
-        </Link>
       </div>
       <hr />
       <Outlet />
