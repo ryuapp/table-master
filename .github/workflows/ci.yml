@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: "22.x"
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Check format and lint
         run: npm run check
 
