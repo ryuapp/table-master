@@ -8,6 +8,7 @@ import {
 } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import Papa from "papaparse";
+import { FileDown, FileUp } from "lucide-react";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -72,17 +73,19 @@ export const Table = () => {
         />
         <button
           type="button"
-          className="border-2 py-1 px-2 rounded"
+          className="border-2 py-1 px-2 rounded flex items-center gap-1"
           onClick={() => document.getElementById("fileInput")?.click()}
         >
-          Upload CSV
+          <FileUp size="20" />
+          <div>Import CSV</div>
         </button>
         <button
           type="button"
-          className="border-2 py-1 px-2 rounded"
+          className="border-2 py-1 px-2 rounded flex items-center gap-1"
           onClick={onBtnExport}
         >
-          Export CSV
+          <FileDown size="20" />
+          <div>Export CSV</div>
         </button>
       </div>
       <AgGridReact

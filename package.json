@@ -28,6 +28,7 @@
     "@tanstack/react-router": "1.97.1",
     "@tanstack/router-devtools": "1.97.1",
     "ag-grid-react": "33.0.4",
+    "lucide-react": "0.473.0",
     "papaparse": "5.5.1",
     "react": "19.0.0",
     "react-dom": "19.0.0"
