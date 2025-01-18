@@ -1,14 +1,14 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
 import {
   AllCommunityModule,
-  ModuleRegistry,
   type ColDef,
+  ModuleRegistry,
 } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import Papa from "papaparse";
 import { FileDown, FileUp } from "lucide-react";
+import Papa from "papaparse";
+import { useCallback, useRef, useState } from "react";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -62,7 +62,7 @@ export const Table = () => {
   );
 
   return (
-    <div className="w-full h-[400px] flex flex-col gap-2">
+    <div className="flex h-[400px] w-full flex-col gap-2">
       <div className="flex gap-2">
         <input
           type="file"
@@ -73,7 +73,7 @@ export const Table = () => {
         />
         <button
           type="button"
-          className="border-2 py-1 px-2 rounded flex items-center gap-1"
+          className="flex items-center gap-1 rounded border-2 px-2 py-1"
           onClick={() => document.getElementById("fileInput")?.click()}
         >
           <FileUp size="20" />
@@ -81,7 +81,7 @@ export const Table = () => {
         </button>
         <button
           type="button"
-          className="border-2 py-1 px-2 rounded flex items-center gap-1"
+          className="flex items-center gap-1 rounded border-2 px-2 py-1"
           onClick={onBtnExport}
         >
           <FileDown size="20" />

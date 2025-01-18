@@ -9,8 +9,9 @@
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite",
-    "format": "biome format --write .",
-    "lint": "biome lint --write ."
+    "fix": "biome check --write --unsafe .",
+    "format:fix": "biome format --write --unsafe .",
+    "lint:fix": "biome lint --write --unsafe ."
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
