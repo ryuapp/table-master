@@ -29,7 +29,7 @@ export const ColorThemeSelect: FC = () => {
 
   return (
     <select
-      className="bg-gray-50 bg-transparent text-gray-950 dark:bg-gray-900 dark:text-gray-200"
+      className="bg-transparent text-gray-950 dark:bg-gray-900 dark:text-gray-200"
       value={theme}
       onChange={handleChange}
     >
