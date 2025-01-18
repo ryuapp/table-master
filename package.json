@@ -9,6 +9,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite",
+    "check": "biome check .",
     "fix": "biome check --write --unsafe .",
     "format:fix": "biome format --write --unsafe .",
     "lint:fix": "biome lint --write --unsafe ."
