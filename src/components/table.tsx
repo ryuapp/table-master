@@ -29,7 +29,7 @@ export const Table = () => {
   ]);
 
   const [colDefs, setColDefs] = useState<ColDef<IRow>[]>([
-    { field: "make", editable: true },
+    { field: "make", editable: true, rowDrag: true },
     { field: "model", editable: true },
     { field: "price", editable: true },
     { field: "electric", editable: true },
@@ -47,10 +47,14 @@ export const Table = () => {
           header: true,
           complete: (result: { data: IRow[] }) => {
             if (result.data[0]) {
-              const colDefs = Object.keys(result.data[0]).map((field) => ({
-                field,
-                editable: true,
-              }));
+              const colDefs = Object.keys(result.data[0]).map(
+                (field, index) => ({
+                  field,
+                  editable: true,
+                  // First column enables row drag
+                  ...(index === 0 && { rowDrag: true }),
+                }),
+              );
               setColDefs(colDefs as ColDef<IRow>[]);
             }
             setRowData(result.data as IRow[]);
@@ -92,6 +96,7 @@ export const Table = () => {
         className="size-full"
         ref={gridRef}
         rowData={rowData}
+        rowDragManaged={true}
         columnDefs={colDefs}
         suppressDragLeaveHidesColumns={true}
       />
