@@ -1,6 +1,6 @@
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import { Home } from "lucide-react";
+import { Header } from "../components/header";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -9,22 +9,8 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      <div className="flex gap-3 p-2 text-lg">
-        <div>
-          <Link
-            to="/"
-            className="flex items-center gap-1"
-            activeProps={{
-              className: "font-bold",
-            }}
-            activeOptions={{ exact: true }}
-          >
-            <Home size="20" />
-            Home
-          </Link>
-        </div>
-      </div>
-      <hr />
+      <Header />
+      <hr className="border-gray-200 dark:border-gray-800" />
       <Outlet />
       <TanStackRouterDevtools position="bottom-right" />
     </>
