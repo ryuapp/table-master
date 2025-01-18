@@ -9,18 +9,20 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      <div className="flex gap-2 p-2 text-lg">
-        <Link
-          to="/"
-          className=" flex items-center gap-1"
-          activeProps={{
-            className: "font-bold",
-          }}
-          activeOptions={{ exact: true }}
-        >
-          <Home size="20" />
-          Home
-        </Link>{" "}
+      <div className="flex gap-3 p-2 text-lg">
+        <div>
+          <Link
+            to="/"
+            className="flex items-center gap-1"
+            activeProps={{
+              className: "font-bold",
+            }}
+            activeOptions={{ exact: true }}
+          >
+            <Home size="20" />
+            Home
+          </Link>
+        </div>
       </div>
       <hr />
       <Outlet />
