@@ -77,7 +77,7 @@ export const Table = () => {
         />
         <button
           type="button"
-          className="flex items-center gap-1 rounded-sm border-2 px-2 py-1"
+          className="flex items-center gap-1 rounded-sm border-2 px-2 py-1 hover:cursor-pointer"
           onClick={() => document.getElementById("fileInput")?.click()}
         >
           <FileUp size="20" />
@@ -85,7 +85,7 @@ export const Table = () => {
         </button>
         <button
           type="button"
-          className="flex items-center gap-1 rounded-sm border-2 px-2 py-1"
+          className="flex items-center gap-1 rounded-sm border-2 px-2 py-1 hover:cursor-pointer"
           onClick={onBtnExport}
         >
           <FileDown size="20" />
